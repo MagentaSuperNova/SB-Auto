@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SB - Auto</title>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <nav>
+        <h1 title="SB - Auto" role="link">SBA</h1>
+        <div class="nav-spacer"></div>
+        <a href="" class="button secondary" target="_blank" title="View the source code on GitHub">Source</a>
+        <a href="" class="button primary hidden-mobile">Help Archive Projects</a>
+    </nav>
+
+    <div class="header">
+        <h1>SB - Auto</h1>
+        <p>Makes downloading Scratch projects easy. Simply enter two project IDs and click start. No need to pick the right fromat or include the assets, all of this is done automatically. So what are you waiting for? Grab a drink and get downloading!</p>
+    </div>
+
+    <div class="main">
+        <div class="input-box">
+            <p>Start:</p>
+            <input id="start" type="number" value="1">
+        </div>
+        <div class="input-box">
+            <p>End:</p>
+            <input id="end" type="number" value="10">
+        </div>
+        <button id="startButton">Start!</button>
+        <div id="progress-bar">
+            <div id="progress-bar-fill"></div>
+        </div>
+        <p id="progress-msg"></p>
+    </div>
+
+    <div id="download-link" hidden></div>
+
+    <script src="jszip.min.js"></script>
+    <script src="loader.js"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
