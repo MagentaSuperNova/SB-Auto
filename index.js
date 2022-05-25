@@ -88,24 +88,25 @@ button.addEventListener('click', function() {
 
 // Sets the current progress
 function setProgress(id) {
+    let per = Math.round(((id - idStart) / (idEnd - idStart)) * 100)
+    let total = (idEnd - idStart) + 1
+    let current = id - idStart
     if (id == "INVALID") {
         progressBarFill.style.width = '10%';
         message.innerHTML = "Invalid input."
         return
     }
     if (id == "DONE") {
-        let total = (idEnd - idStart) + 1
         progressBarFill.style.width = '100%';
-        message.innerHTML = `100% | All done. ${total} projects were downloaded.`
+        message.innerHTML = `100% | All done. ${total} projects were downloaded. (${idStart} - ${idEnd})`
         return
     }
-    let per = Math.round(((id - idStart) / (idEnd - idStart)) * 100)
     if (per < 11) {
         progressBarFill.style.width = 10 + '%';
     } else {
         progressBarFill.style.width = per + '%';
     }
-    message.innerHTML = `${per}% | Downloading project ${id} of ${idEnd}`
+    message.innerHTML = `${per}% | Downloading project ${id}. (${current} of ${total})`
 }
 
 // Downloads a project
