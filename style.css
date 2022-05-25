@@ -15,14 +15,9 @@ html {
     --bg-2: #ddd;
     --txt-1: #000;
     --bd: transparent;
-    --acc: #8661ff;
-    --acc-dark: #5c43af;
+    --acc: #9797ff;
+    --acc-dark: #7d7dff;
     background: var(--bg-1);
-}
-
-::selection {
-    color: black;
-    background-color: #0fbd8c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,7 +54,7 @@ nav {
 nav h1 {
     margin-left: 40px;
     margin-right: 30px;
-    color: #d6fff6ce;
+    color: var(--acc-dark);
     font-size: 30px;
     cursor: pointer;
 }
@@ -127,6 +122,7 @@ a.button.secondary:hover {
     margin-top: 20px;
     border-radius: 1.5em;
     background-color: var(--bg-2);
+    border: 3px solid lightgrey;
 }
 
 #progress-bar-fill {
@@ -150,8 +146,15 @@ a.button.secondary:hover {
 #end {
     width: 100px;
     border-radius: 0.5em;
-    border: 3px solid lightgrey;
+    border: 3px solid var(--acc);
     padding: 2px 4px;
+    background-color: var(--bg-2);
+    color: var(--txt-1);
+}
+
+input:focus {
+    outline: none;
+    border: 3px solid var(--acc-dark) !important;
 }
 
 .input-box {
@@ -171,11 +174,17 @@ a.button.secondary:hover {
 }
 
 #startButton {
-    padding: 2px 12px;
-    border-radius: 0.5em;
-    border: 3px solid lightgrey;
-    color: var(--acc);
-    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--acc);
+    color: white;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+#startButton:hover {
+    background-color: var(--acc-dark);
 }
