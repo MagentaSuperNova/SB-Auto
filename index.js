@@ -47,6 +47,8 @@ async function startAuto() {
         disableInputs(false);
         return
     }
+    
+    const clearLogs = setInterval(function () {console.clear()}, 60000);
 
     for (let i = idStart; i < (idEnd + 1); i++) {
 
@@ -68,6 +70,7 @@ async function startAuto() {
             }
         }
     }
+    clearInterval(clearLogs)
     setProgress("DONE")
     disableInputs(false);
 }
