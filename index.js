@@ -90,7 +90,7 @@ button.addEventListener('click', function() {
 function setProgress(id) {
     let per = Math.round(((id - idStart) / (idEnd - idStart)) * 100)
     let total = (idEnd - idStart) + 1
-    let current = id - idStart
+    let current = id - idStart + 1
     if (id == "INVALID") {
         progressBarFill.style.width = '10%';
         message.innerHTML = "Invalid input."
