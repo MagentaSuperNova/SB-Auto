@@ -85,9 +85,7 @@ function disableInputs(bool) {
 }
 
 // Listen for button click
-button.addEventListener('click', function() {
-    startAuto()
-});
+button.addEventListener('click', startAuto);
 
 // Sets the current progress
 function setProgress(id) {
