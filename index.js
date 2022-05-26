@@ -85,9 +85,7 @@ function disableInputs(bool) {
 }
 
 // Listen for button click
-button.addEventListener('click', function() {
-    startAuto()
-});
+button.addEventListener('click', startAuto);
 
 // Sets the current progress
 function setProgress(id) {
@@ -173,5 +171,7 @@ function downloadProject(id, type) {
             a.textContent = 'Download ' + filename + ' (' + size.toFixed(2) + ' MiB)';
             downloadLinkEl.appendChild(a);
             a.click();
+            URL.revokeObjectURL(url);
+            document.body.removeChild(a);
         });
 }
