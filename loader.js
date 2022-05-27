@@ -7,6 +7,7 @@
 
 // If you want to use this library still, see index.html for a pretty complete usage example (notably downloadProject())
 // Converting projects to archives may require JSZip: https://stuk.github.io/jszip/ (tested on 3.1.5)
+
 window.SBDL = (function() {
     'use strict';
 
@@ -358,7 +359,7 @@ window.SBDL = (function() {
             const knownIds = new Set();
 
             for (const i of assets) {
-                const id = i.assetId;
+                const id = i.md5ext;
                 if (knownIds.has(id)) {
                     continue;
                 }
