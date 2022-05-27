@@ -11,6 +11,16 @@ Makes downloading Scratch projects easy. Simply enter two project IDs and click 
 
 That's it!
 
+## Depreciation Notice
+
+Due to Scratch planning to require a token to access projects, this site will become unoperational as soon as Scratch implements the change. When such time occurs, this repository will be archived and no longer maintained.
+
+For more info on this, please see some of the links listed below.
+- https://docs.turbowarp.org/unshared-projects
+- https://github.com/ScratchAddons/ScratchAddons/issues/4603
+- https://github.com/LLK/scratch-www/pull/6773
+- https://github.com/LLK/scratch-www/pull/6824
+
 ## Credits / Licensing
 
 This repository is licensed under the [MIT License](https://github.com/MagentaSuperNova/SB-Auto/blob/main/LICENSE).
