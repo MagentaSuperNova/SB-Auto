@@ -8,7 +8,6 @@ let idEnd;
 let result;
 let debug;
 let downloadedProjects = 0;
-let unavailableProjects = 0;
 
 // Element references
 const startInput = document.querySelector('#start');
@@ -55,7 +54,6 @@ async function startAuto() {
     for (let i = idStart; i < (idEnd + 1); i++) {
 
         setProgress(i);
-
         await loadInput(i, "sb");
 
         if (!(result == "OK")) {
@@ -68,7 +66,6 @@ async function startAuto() {
                     if (debug) {
                         console.log("PROJECT NOT AVAILABLE - SKIPPED")
                     }
-                    unavailableProjects++
                 }
             }
         }
@@ -92,18 +89,19 @@ button.addEventListener('click', startAuto);
 
 // Sets the current progress
 function setProgress(id) {
-    let per = Math.round(((id - idStart) / (idEnd - idStart)) * 100)
-    let total = (idEnd - idStart) + 1
-    let current = id - idStart + 1
+    let per = Math.round(((id - idStart) / (idEnd - idStart)) * 100);
+    let total = (idEnd - idStart) + 1;
+    let current = id - idStart + 1;
+    let unavailable = total - downloadedProjects;
     if (id == "INVALID") {
         progressBarFill.style.width = '10%';
         message.innerHTML = "Invalid input."
-        return
+        return;
     }
     if (id == "DONE") {
         progressBarFill.style.width = '100%';
-        message.innerHTML = `100% | All done. ${total} projects were downloaded. ${unavailableProjects} were unavailable and couldn't be downloaded.`
-        return
+        message.innerHTML = `100% | All done. ${downloadedProjects} projects were downloaded. ${unavailable} projects were unavailable and couldn't be downloaded.`
+        return;
     }
     if (per < 11) {
         progressBarFill.style.width = 10 + '%';
