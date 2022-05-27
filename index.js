@@ -7,6 +7,8 @@ let idStart;
 let idEnd;
 let result;
 let debug;
+let downloadedProjects = 0;
+let unavailableProjects = 0;
 
 // Element references
 const startInput = document.querySelector('#start');
@@ -66,6 +68,7 @@ async function startAuto() {
                     if (debug) {
                         console.log("PROJECT NOT AVAILABLE - SKIPPED")
                     }
+                    unavailableProjects++
                 }
             }
         }
@@ -99,7 +102,7 @@ function setProgress(id) {
     }
     if (id == "DONE") {
         progressBarFill.style.width = '100%';
-        message.innerHTML = `100% | All done. ${total} projects were downloaded. (${idStart} - ${idEnd})`
+        message.innerHTML = `100% | All done. ${total} projects were downloaded. ${unavailableProjects} were unavailable and couldn't be downloaded.`
         return
     }
     if (per < 11) {
@@ -122,6 +125,7 @@ async function loadInput(id, type) {
             if (debug) {
                 console.log(`SUCCESS - Project ${id} was downloaded as .${type}`)
             }
+            downloadedProjects++
             result = "OK"
         })
         .catch((err) => {
